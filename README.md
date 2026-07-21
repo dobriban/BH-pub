@@ -20,7 +20,7 @@ three blocks of sizes `163 N`, `N`, and `3 N`. The repository contains:
 
 ```text
 experiments/       Executable source code and exact certificate inputs
-results/reference/ Immutable outputs used in the PNAS draft
+results/reference/ Immutable outputs used in the draft
 figures/           Manuscript panel and a two-panel diagnostic figure
 scripts/           Cross-platform reproduction and integrity tools
 tests/             Fast checks of models, archives, and a small MC smoke run
@@ -155,7 +155,7 @@ approximately `0.0114245610`, `0.0620459522`, and `0.1176040252`.
   mathematical fields agree.
 
 The manuscript currently points to <https://github.com/dobriban/BH>. If the
-repository is published at another URL, update both this file and the PNAS
+repository is published at another URL, update both this file and the
 data-availability statement.
 
 ## License
