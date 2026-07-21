@@ -1,7 +1,7 @@
 # BH can fail for correlated two-sided Gaussian tests
 
 This repository contains the supporting code and archived computational
-results for the PNAS Brief Report draft *The Benjamini--Hochberg Procedure Can
+results for the draft *The Benjamini--Hochberg Procedure Can
 Fail to Control the FDR for Correlated Two-Sided Gaussian Tests* by Edgar
 Dobriban.
 
