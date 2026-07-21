@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the accompanying paper."
+title: "Supporting code for The Benjamini--Hochberg Procedure Can Fail to Control the FDR for Correlated Two-Sided Gaussian Tests"
+type: software
+authors:
+  - family-names: Dobriban
+    given-names: Edgar
+repository-code: "https://github.com/dobriban/BH"
+version: 1.0.0
+date-released: 2026-07-21

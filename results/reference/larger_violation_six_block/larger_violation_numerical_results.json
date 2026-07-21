@@ -1,0 +1,63 @@
+{
+  "model": {
+    "K": 6,
+    "weights_exact_decimal": [
+      "0.99716298822048339213308976913422506279207606",
+      "1.035724637633261e-5",
+      "9.78796812256908e-10",
+      "3.0492299816422394e-28",
+      "2.826653554343463e-3",
+      "2.2305608519390437e-24"
+    ],
+    "means_exact_decimal": [
+      "0",
+      "0.6770732230955452",
+      "1.586522735054591",
+      "3.2037098102462105",
+      "4.469876769506591",
+      "5.053055030678688"
+    ],
+    "loadings_exact_decimal": [
+      "0.05609416921615385",
+      "-0.0830487863256059",
+      "-0.1770420820546788",
+      "-0.23038325840329232",
+      "-0.8002685127003462",
+      "-0.414555784395906"
+    ],
+    "residual_standard_deviations": "sqrt(1-rho_g^2)",
+    "common_block_denominator": "50000000000000000000000000000000000000000000"
+  },
+  "z_range": [
+    -8.5,
+    8.5
+  ],
+  "z_mesh": 0.00125,
+  "bisection_steps": 24,
+  "results": {
+    "0.01": {
+      "limiting_fdr": 0.011424561004499635,
+      "z_grid_points": 13601,
+      "c_grid_points": 1597,
+      "crossing_grid_fraction": 0.9477979560326446,
+      "maximum_located_c": 68.67456833273172,
+      "maximum_conditional_fdp": 0.9999999390835531
+    },
+    "0.05": {
+      "limiting_fdr": 0.06204595215960603,
+      "z_grid_points": 13601,
+      "c_grid_points": 1628,
+      "crossing_grid_fraction": 1.0,
+      "maximum_located_c": 45.10570100694895,
+      "maximum_conditional_fdp": 0.9999995976543686
+    },
+    "0.10": {
+      "limiting_fdr": 0.11760402520651653,
+      "z_grid_points": 13601,
+      "c_grid_points": 1643,
+      "crossing_grid_fraction": 1.0,
+      "maximum_located_c": 34.49745471030474,
+      "maximum_conditional_fdp": 0.9999991197507329
+    }
+  }
+}
