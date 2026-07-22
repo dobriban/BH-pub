@@ -1,0 +1,86 @@
+--- a/brief_report.tex
++++ b/brief_report.tex
+@@ -200,10 +200,11 @@
+ lower bound for the asymptotic FDR by bracketing the conditional BH threshold.
+ Standard floating-point root finding and quadrature provide a useful
+ exploratory evaluation of this bound over arbitrary nominal levels. For the
+-present three-block model, however, that calculation is not greater than
+-$\alpha$ for every $\alpha\in(0,1)$; for example, its pointwise
+-first-crossing value is approximately $0.1977$ at $\alpha=0.2$. We therefore
+-make no all-level claim.
++present three-block model, the largest value of $\alpha$ for which the
++numerical lower bound gives a violation on the grid
++$\{0.001,0.002,\ldots,0.200\}$ is $\alpha=0.180$: the first-crossing value is
++approximately $0.18007018$, whereas at the next grid point, $\alpha=0.181$,
++it is approximately $0.18095669<0.181$.
+ Because some of the probabilities involved in the calculation are very small,
+ and because ordinary floating-point calculations are not a proof, we instead
+ use conservative lower bounds obtained via outward-rounded arithmetic
+--- a/brief_report_si.tex
++++ b/brief_report_si.tex
+@@ -444,15 +444,41 @@
+ because its floating-point sign tests do not prove the strict inequalities in
+ Eqs.~\ref{eq:ordinary-infeasible}--\ref{eq:ordinary-feasible}.
+ 
+-For the model in Section~\ref{sec:model}, a direct double-precision
+-calculation gives $\widetilde L(\alpha)$ values of approximately $0.0113$,
+-$0.0552$, and $0.1058$ at $\alpha=0.01$, $0.05$, and $0.10$, respectively,
+-consistent with the certified lower bounds below. The same calculation gives
+-$\widetilde L(0.20)\approx0.1977$, which is below the nominal value $0.20$.
+-Thus this calculation does not support the assertion that the lower bound
+-exceeds $\alpha$ for every $\alpha\in(0,1)$ in this three-block model.
+-The rigorous claims in this paper are therefore restricted to the nominal
+-levels for which outward-rounded certificates are supplied.
++For the model in Section~\ref{sec:model}, we evaluated
++Eq.~\ref{eq:first-crossing-integral} on the complete grid
++\begin{equation}
++\mathcal A_{\mathrm{explore}}
++=\{0.001,0.002,\ldots,0.200\}.
++\label{eq:exploratory-alpha-grid}
++\end{equation}
++The calculation uses log-domain Gaussian tail probabilities. At a crossing,
++$\alpha\sum_{g=0}^2w_gq(c_*;|M_g(z)|,s_g)=1$, and hence
++$0\leq\ell_\alpha(z)\leq1$. Truncating the factor integral to $[-8,8]$
++therefore omits at most $2\Phi(-8)<1.25\times10^{-15}$. For every level in
++Eq.~\ref{eq:exploratory-alpha-grid}, the first-crossing branch has one switch
++between two roots as a function of $z$. The code locates the corresponding
++tangency, splits the factor integral there, and applies adaptive
++Gauss--Kronrod quadrature to the two smooth pieces. The largest reported
++quadrature error estimate over the 200 runs is $2.24\times10^{-10}$.
++
++The complete code and 200-row output are supplied as
++\texttt{evaluate\_s4\_first\_crossing.py} and
++\texttt{s4\_first\_crossing\_grid.csv}. Selected values are
++\begin{align}
++\widetilde L(0.001)&\approx0.001028146506,\nonumber\\
++\widetilde L(0.010)&\approx0.011296901681,\nonumber\\
++\widetilde L(0.050)&\approx0.055164750166,\nonumber\\
++\widetilde L(0.100)&\approx0.105839670340,\nonumber\\
++\widetilde L(0.180)&\approx0.180070178734,\label{eq:exploratory-boundary-values}\\
++\widetilde L(0.181)&\approx0.180956693469,\nonumber\\
++\widetilde L(0.200)&\approx0.197667313733.\nonumber
++\end{align}
++Thus, on the grid in Eq.~\ref{eq:exploratory-alpha-grid}, the largest nominal
++level at which the numerical lower bound exceeds $\alpha$ is $\alpha=0.180$;
++at the next grid point it is already below nominal. These floating-point
++values are exploratory rather than certified enclosures. The rigorous claims
++in this paper remain restricted to the nominal levels for which
++outward-rounded certificates are supplied below.
+ 
+ \section{Finite reduction and certified proof}
+ \label{sec:certificate}
+@@ -678,8 +704,12 @@
+ entire interval lies on the required side. Certificate code, exact rational
+ theorem-level witness files, the full-grid witness generator, archived
+ certificate output, the downward-rounded lower-bound curve, simulation code,
+-and simulation data are supplied with the submission. The separate 85-test certificate code and its archived output are supplied as
+-well. The larger-violation supplement is in
++and simulation data are supplied with the submission. The exploratory
++Section~\ref{sec:ordinary-bound} calculation is reproduced by
++\texttt{evaluate\_s4\_first\_crossing.py}; its complete grid output is
++\texttt{s4\_first\_crossing\_grid.csv}. The separate 85-test certificate code
++and its archived output are supplied as well. The larger-violation supplement
++is in
+ \texttt{experiments/larger\_violation\_six\_block}; it includes the exact
+ six-block model, deterministic and Monte Carlo evaluations, the complete
+ $\alpha=0.05$ Arb checker, and archived and independently rerun certificate

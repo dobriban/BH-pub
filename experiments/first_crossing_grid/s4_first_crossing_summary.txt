@@ -1,0 +1,29 @@
+S4 exploratory first-crossing integral: grid evaluation summary
+
+Grid: alpha = 0.001, 0.002, ..., 0.200 (200 points)
+Numerically positive excesses: 180
+Numerically nonpositive excesses: 20
+
+Largest grid point with a positive excess:
+  alpha                    = 0.180
+  first-crossing bound     = 0.180070178733918
+  bound minus alpha        = +0.000070178733918
+
+First grid point with a nonpositive excess:
+  alpha                    = 0.181
+  first-crossing bound     = 0.180956693468590
+  bound minus alpha        = -0.000043306531410
+
+Largest excess on the grid:
+  alpha                    = 0.083
+  first-crossing bound     = 0.089043316057637
+  bound minus alpha        = +0.006043316057637
+
+Largest adaptive-quadrature error estimate: 2.238e-10
+The z-integral is truncated to [-8,8]; the omitted Gaussian mass is below 1.25e-15.
+These are floating-point exploratory results, not outward-rounded certificates.
+
+SHA-256 evaluate_s4_first_crossing.py:
+  deb5fa3790852627014bf2a190d36ef5348f1e9aa149b7c3664283e3c3c22fc8
+SHA-256 s4_first_crossing_grid.csv:
+  3c0fd5fbb0587c6614d8c04e4e9a207df59011805beaa35b2668fbd7c016817c
